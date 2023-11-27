@@ -1,4 +1,5 @@
 import React from "react";
+import { getData } from "../utils/data";
 import Header from "./Header";
 import Body from "./Body";
 

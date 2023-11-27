@@ -1,3 +1,6 @@
+import React from "react";
+import NoteItem from "./NoteItem";
+
 function Body() {
   return (
     <div className="note-app__body">
@@ -21,7 +24,13 @@ function Body() {
         </form>
       </div>
       <h2>Catatan Aktif</h2>
-      <div className="note-list"></div>
+      <div className="note-list">
+        <NoteItem />
+      </div>
+      <h2>Arsip</h2>
+      <div className="note-list">
+        <NoteItem />
+      </div>
     </div>
   );
 }
