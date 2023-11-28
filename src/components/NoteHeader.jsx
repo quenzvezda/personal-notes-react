@@ -1,7 +1,6 @@
 import React from "react";
 
 function NoteHeader(props) {
-  const { onSearchNote } = props;
   return (
     <div className="note-app__header">
       <h1>Notes</h1>
