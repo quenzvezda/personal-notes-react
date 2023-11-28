@@ -13,7 +13,7 @@ function NoteInput(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.onAddNote({ title,  body});
+        props.handleAddNote({ title,  body});
         setTitle('');
         setBody('');
     };

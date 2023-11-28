@@ -10,7 +10,7 @@ function NoteBody(props) {
 
     return (
         <div className='note-app__body'>
-            <NoteInput onAddNote={props.onAddNote} />
+            <NoteInput handleAddNote={props.handleAddNote} />
             <h2>Catatan Aktif</h2>
             <NoteList notes={activeNotes} />
             <h2>Arsip</h2>

@@ -35,7 +35,7 @@ class NoteApp extends React.Component {
     return (
       <>
         <NoteHeader />
-        <NoteBody notes={this.state.notes} onAddNote={this.handleAddNote} />
+        <NoteBody notes={this.state.notes} handleAddNote={this.handleAddNote} />
       </>
     );
   }
