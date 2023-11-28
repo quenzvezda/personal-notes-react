@@ -12,9 +12,9 @@ function NoteBody(props) {
         <div className='note-app__body'>
             <NoteInput onAddNoteHandler={props.onAddNoteHandler} />
             <h2>Catatan Aktif</h2>
-            <NoteList notes={activeNotes} onDeleteNoteHandler={props.onDeleteNoteHandler}/>
+            {(activeNotes.length === 0) ? <p className='note-list__empty-message'>Tidak ada catatan</p> : <NoteList notes={activeNotes} onDeleteNoteHandler={props.onDeleteNoteHandler}/>}
             <h2>Arsip</h2>
-            <NoteList notes={archivedNotes} onDeleteNoteHandler={props.onDeleteNoteHandler}/>
+            {(archivedNotes.length === 0) ? <p className='note-list__empty-message'>Tidak ada catatan</p> : <NoteList notes={archivedNotes} onDeleteNoteHandler={props.onDeleteNoteHandler}/>}
         </div>
     );
 }
