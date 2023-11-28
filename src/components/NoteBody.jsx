@@ -5,6 +5,8 @@ import NoteList from './NoteList';
 function NoteBody(props) {
     const { notes } = props;
 
+    console.log(notes);
+
     const activeNotes = notes.filter(note => !note.archived);
     const archivedNotes = notes.filter(note => note.archived);
 

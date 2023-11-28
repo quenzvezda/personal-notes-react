@@ -16,7 +16,7 @@ class NoteApp extends React.Component {
 
   onAddNoteHandler(newNote) {
     this.setState(prevState => ({
-        notes: [...prevState.notes, { ...newNote, id: Date.now(), archived: false, createAt: new Date().toISOString()}],
+        notes: [...prevState.notes, { ...newNote, id: Date.now(), archived: false, createdAt: new Date().toISOString()}],
     }));
   }
 
