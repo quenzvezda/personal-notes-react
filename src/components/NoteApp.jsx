@@ -12,6 +12,7 @@ class NoteApp extends React.Component {
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onDeleteNoteHandler = this.onDeleteNoteHandler.bind(this);
+    this.onChangeNoteArchieve = this.onChangeNoteArchieve.bind(this);
   }
 
   onAddNoteHandler(newNote) {
@@ -25,6 +26,20 @@ class NoteApp extends React.Component {
     this.setState({ notes });
   }
 
+  onChangeNoteArchieve(id) {
+    const notes = this.state.notes.map((note) => {
+      if (note.id === id) {
+        return {
+          ...note,
+          archived: !note.archived,
+        }
+      }
+      return note;
+    });
+
+    this.setState({ notes });
+  }
+
 
   render() {
     return (
@@ -34,6 +49,7 @@ class NoteApp extends React.Component {
           notes={this.state.notes} 
           onAddNoteHandler={this.onAddNoteHandler} 
           onDeleteNoteHandler={this.onDeleteNoteHandler}
+          onChangeNoteArchieve={this.onChangeNoteArchieve}
         />
       </>
     );
