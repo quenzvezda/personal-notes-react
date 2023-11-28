@@ -19,7 +19,7 @@ function NoteHeader(props) {
 }
 
 NoteHeader.propTypes = {
-  onSearchNote: PropTypes.func.isRequired,
+  onSearchNote: PropTypes.func,
 };
 
 export default NoteHeader;
