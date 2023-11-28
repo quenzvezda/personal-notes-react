@@ -1,5 +1,6 @@
 import React from "react";
 import { showFormattedDate } from "../utils/data";
+import PropTypes from "prop-types";
 
 function NoteItem(props) {
   const { note, onDeleteNoteHandler, onChangeNoteArchieve } = props;
@@ -32,5 +33,11 @@ function NoteItem(props) {
     </div>
   );
 }
+
+NoteItem.propTypes = {
+  note: PropTypes.object.isRequired,
+  onDeleteNoteHandler: PropTypes.function.isRequired,
+  onChangeNoteArchieve: PropTypes.func.isRequired,
+};
 
 export default NoteItem;

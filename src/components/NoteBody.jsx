@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteInput from './NoteInput';
 import NoteList from './NoteList';
+import PropTypes from "prop-types";
 
 function NoteBody(props) {
   const { notes } = props;
@@ -34,5 +35,12 @@ function NoteBody(props) {
     </div>
   );
 }
+
+NoteBody.propTypes = {
+  notes: PropTypes.array,
+  onAddNoteHandler: PropTypes.func.isRequired,
+  onDeleteNoteHandler: PropTypes.func.isRequired,
+  onChangeNoteArchieve: PropTypes.func.isRequired,
+};
 
 export default NoteBody;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 function NoteInput(props) {
   const [title, setTitle] = useState("");
@@ -45,5 +46,9 @@ function NoteInput(props) {
     </div>
   );
 }
+
+NoteInput.propTypes = {
+  onAddNoteHandler: PropTypes.func,
+};
 
 export default NoteInput;

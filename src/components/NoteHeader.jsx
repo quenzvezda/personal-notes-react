@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function NoteHeader(props) {
   return (
@@ -16,5 +17,9 @@ function NoteHeader(props) {
     </div>
   );
 }
+
+NoteHeader.propTypes = {
+  onSearchNote: PropTypes.func.isRequired,
+};
 
 export default NoteHeader;
