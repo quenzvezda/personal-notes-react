@@ -10,11 +10,11 @@ function NoteBody(props) {
 
     return (
         <div className='note-app__body'>
-            <NoteInput handleAddNote={props.handleAddNote} />
+            <NoteInput onAddNoteHandler={props.onAddNoteHandler} />
             <h2>Catatan Aktif</h2>
-            <NoteList notes={activeNotes} />
+            <NoteList notes={activeNotes} onDeleteNoteHandler={props.onDeleteNoteHandler}/>
             <h2>Arsip</h2>
-            <NoteList notes={archivedNotes} />
+            <NoteList notes={archivedNotes} onDeleteNoteHandler={props.onDeleteNoteHandler}/>
         </div>
     );
 }

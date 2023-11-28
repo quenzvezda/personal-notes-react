@@ -1,7 +1,7 @@
 import React from "react";
 
 function NoteItem(props) {
-    const { note } = props;
+    const { note, onDeleteNoteHandler } = props;
 
     return (
         <div className="note-item">
@@ -11,7 +11,7 @@ function NoteItem(props) {
                 <p className="note-item__body">{note.body}</p>
             </div>
             <div className="note-item__action">
-                <button className="note-item__delete-button">Delete</button>
+                <button className="note-item__delete-button" onClick={() => {onDeleteNoteHandler(note.id)}}>Delete</button>
                 <button className="note-item__archive-button">Arsipkan</button>
             </div>
         </div>
