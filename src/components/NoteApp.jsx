@@ -13,10 +13,21 @@ class NoteApp extends React.Component {
 
 
   render() {
+    if (this.state.notes.length === 0) {
+      return (
+        <>
+          <NoteHeader />
+          <div className="empty-state">
+            <h2>Tidak ada catatan untuk ditampilkan</h2>
+            <p>Silakan tambahkan beberapa catatan.</p>
+          </div>
+        </>
+      );
+    }
     return (
       <>
       <NoteHeader />
-      <NoteBody />
+      <NoteBody notes={this.state.notes}/>
       </>
     )
   }
