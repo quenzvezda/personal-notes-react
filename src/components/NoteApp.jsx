@@ -13,6 +13,8 @@ class NoteApp extends React.Component {
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onDeleteNoteHandler = this.onDeleteNoteHandler.bind(this);
     this.onChangeNoteArchieve = this.onChangeNoteArchieve.bind(this);
+
+    this.onSearchNote = this.onSearchNote.bind(this);
   }
 
   onAddNoteHandler(newNote) {
@@ -40,13 +42,21 @@ class NoteApp extends React.Component {
     this.setState({ notes });
   }
 
+  onSearchNote = (searchText) => {
+    this.setState({ searchQuery: searchText.toLowerCase() });
+  }
 
   render() {
+    const filteredNotes = this.state.searchQuery
+        ? this.state.notes.filter(note =>
+            note.title.toLowerCase().includes(this.state.searchQuery))
+        : this.state.notes;
+
     return (
       <>
-        <NoteHeader />
+        <NoteHeader onSearchNote={this.onSearchNote}/>
         <NoteBody
-          notes={this.state.notes} 
+          notes={filteredNotes} 
           onAddNoteHandler={this.onAddNoteHandler} 
           onDeleteNoteHandler={this.onDeleteNoteHandler}
           onChangeNoteArchieve={this.onChangeNoteArchieve}

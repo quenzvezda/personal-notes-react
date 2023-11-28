@@ -4,8 +4,6 @@ import { showFormattedDate } from "../utils/data";
 function NoteItem(props) {
     const { note, onDeleteNoteHandler, onChangeNoteArchieve } = props;
 
-    console.log(note.createdAt);
-
     return (
         <div className="note-item">
             <div className="note-item__content">
