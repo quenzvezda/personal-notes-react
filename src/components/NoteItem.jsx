@@ -2,7 +2,6 @@ import React from "react";
 
 function NoteItem(props) {
     const { note } = props;
-    console.log(note, "ini note item");
 
     return (
         <div className="note-item">

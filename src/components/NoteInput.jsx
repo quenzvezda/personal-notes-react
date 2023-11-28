@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
-function NoteInput() {
+function NoteInput(props) {
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+    const maxTitleLength = 50;
+
+    const handleTitleChange = (event) => {
+        if (event.target.value.length <= maxTitleLength) {
+            setTitle(event.target.value);
+        }
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.onAddNote({ title,  body});
+        setTitle('');
+        setBody('');
+    };
+
     return (
         <div className="note-input">
             <h2>Buat Catatan</h2>
-            <form>
-                <p className="note-input__title__char-limit">Sisa Karakter: 50</p>
-                <input type="text" className="note-input__title" placeholder="Ini adalah judul..." required/>
-                <textarea  className="note-input__body" name="" id="" cols="30" rows="10" placeholder="Tuliskan catatanmu disini..." required></textarea>
+            <form onSubmit={handleSubmit}>
+                <p className="note-input__title__char-limit">
+                    Sisa Karakter: {maxTitleLength - title.length}
+                </p>
+                <input 
+                    type="text" 
+                    className="note-input__title" 
+                    placeholder="Ini adalah judul..." 
+                    value={title}
+                    onChange={handleTitleChange}
+                    required
+                />
+                <textarea  
+                    className="note-input__body" 
+                    placeholder="Tuliskan catatanmu disini..." 
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                    required>
+                </textarea>
                 <button type="submit">Buat</button>
             </form>
         </div>

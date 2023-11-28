@@ -9,6 +9,14 @@ class NoteApp extends React.Component {
     this.state = {
       notes: getData(),
     };
+
+    this.handleAddNote = this.handleAddNote.bind(this);
+  }
+
+  handleAddNote(newNote) {
+    this.setState(prevState => ({
+        notes: [...prevState.notes, { ...newNote, id: Date.now(), archived: false, createAt: new Date().toISOString()}],
+    }));
   }
 
 
@@ -26,10 +34,10 @@ class NoteApp extends React.Component {
     }
     return (
       <>
-      <NoteHeader />
-      <NoteBody notes={this.state.notes}/>
+        <NoteHeader />
+        <NoteBody notes={this.state.notes} onAddNote={this.handleAddNote} />
       </>
-    )
+    );
   }
 }
 
