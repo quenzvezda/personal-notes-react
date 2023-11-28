@@ -18,8 +18,16 @@ class NoteApp extends React.Component {
   }
 
   onAddNoteHandler(newNote) {
-    this.setState(prevState => ({
-        notes: [...prevState.notes, { ...newNote, id: Date.now(), archived: false, createdAt: new Date().toISOString()}],
+    this.setState((prevState) => ({
+      notes: [
+        ...prevState.notes,
+        {
+          ...newNote,
+          id: Date.now(),
+          archived: false,
+          createdAt: new Date().toISOString(),
+        },
+      ],
     }));
   }
 
@@ -34,7 +42,7 @@ class NoteApp extends React.Component {
         return {
           ...note,
           archived: !note.archived,
-        }
+        };
       }
       return note;
     });
@@ -44,20 +52,21 @@ class NoteApp extends React.Component {
 
   onSearchNote = (searchText) => {
     this.setState({ searchQuery: searchText.toLowerCase() });
-  }
+  };
 
   render() {
     const filteredNotes = this.state.searchQuery
-        ? this.state.notes.filter(note =>
-            note.title.toLowerCase().includes(this.state.searchQuery))
-        : this.state.notes;
+      ? this.state.notes.filter((note) =>
+          note.title.toLowerCase().includes(this.state.searchQuery)
+        )
+      : this.state.notes;
 
     return (
       <>
-        <NoteHeader onSearchNote={this.onSearchNote}/>
+        <NoteHeader onSearchNote={this.onSearchNote} />
         <NoteBody
-          notes={filteredNotes} 
-          onAddNoteHandler={this.onAddNoteHandler} 
+          notes={filteredNotes}
+          onAddNoteHandler={this.onAddNoteHandler}
           onDeleteNoteHandler={this.onDeleteNoteHandler}
           onChangeNoteArchieve={this.onChangeNoteArchieve}
         />
